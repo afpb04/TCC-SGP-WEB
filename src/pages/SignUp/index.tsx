@@ -7,6 +7,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import logo from '../../assets/logo.svg';
 
 import { Container, Content, Background } from './styles';
 
@@ -36,7 +37,7 @@ const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <h1>GoDelivery</h1>
+        <img src={logo} alt="Godelivery" height="120px" />
 
         <Form ref={formRef} onSubmit={handleSubmit}>
           <h1>Faça seu cadastro</h1>
