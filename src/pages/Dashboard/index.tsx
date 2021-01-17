@@ -1,98 +1,69 @@
-import React from 'react';
-import { isToday } from 'date-fns';
+/* eslint-disable camelcase */
+import React, { useMemo } from 'react';
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 
-import { FiClock, FiPower } from 'react-icons/fi';
-import {
-  Container,
-  Header,
-  HeaderContent,
-  Profile,
-  Content,
-  Orders,
-  NextOrders,
-  Section,
-  Order,
-} from './styles';
+import { Link } from 'react-router-dom';
+import { Container, Content, Models, Model } from './styles';
 
-import logoImg from '../../assets/logo.svg';
-import { useAuth } from '../../hooks/auth';
+import Button from '../../components/Button';
+import Header from '../../components/Header';
 
 const Dashboard: React.FC = () => {
-  const { signOut, user } = useAuth();
+  const day = useMemo(() => {
+    return format(new Date(), "'Dia' dd 'de' MMMM", { locale: ptBR });
+  }, []);
+  const weekDay = useMemo(() => {
+    return format(new Date(), 'cccc', { locale: ptBR });
+  }, []);
+
   return (
     <Container>
-      <Header>
-        <HeaderContent>
-          <img src={logoImg} alt="GoDelivery" />
-
-          <Profile>
-            <img
-              src="https://avatars2.githubusercontent.com/u/15930084?s=460&u=00e846aa1cc7943cca6769dccbe301ef0815f1c8&v=4"
-              alt={user.name}
-            />
-
-            <div>
-              <span>Bem-vindo</span>
-              <strong>{user.name}</strong>
-            </div>
-          </Profile>
-          <button type="button" onClick={signOut}>
-            <FiPower />
-          </button>
-        </HeaderContent>
-      </Header>
+      <Header />
       <Content>
-        <Orders>
-          <h1>Pedidos</h1>
+        <Models>
+          <h1>Modulos</h1>
           <p>
             <span>Hoje</span>
-            <span>Dia 05</span>
-            <span>Segunda-terça</span>
+            <span>{day}</span>
+            <span>{weekDay}</span>
           </p>
-          <NextOrders>
-            <strong>Pedido da vez</strong>
-            <div>
-              <img
-                src="https://avatars2.githubusercontent.com/u/15930084?s=460&u=00e846aa1cc7943cca6769dccbe301ef0815f1c8&v=4"
-                alt="Pedido"
-              />
-              <strong>X-buger</strong>
+
+          <div>
+            <Model>
+              <strong>Pedidos</strong>
               <span>
-                <FiClock />
-                22:59
+                <Link to="/orders">
+                  <Button type="button">Entrar</Button>
+                </Link>
               </span>
-            </div>
-          </NextOrders>
-          <Section>
-            <strong>Próximos Pedidos</strong>
-            <Order>
+            </Model>
+            <Model>
+              <strong>Caixa</strong>
               <span>
-                <FiClock />
-                23:30
+                <Link to="/">
+                  <Button type="button">Entrar</Button>
+                </Link>
               </span>
-              <div>
-                <img
-                  src="https://avatars2.githubusercontent.com/u/15930084?s=460&u=00e846aa1cc7943cca6769dccbe301ef0815f1c8&v=4"
-                  alt="Pedido"
-                />
-                <strong>X-buger</strong>
-              </div>
-            </Order>
-            <Order>
+            </Model>
+            <Model>
+              <strong>Atendimento</strong>
               <span>
-                <FiClock />
-                23:30
+                <Link to="/">
+                  <Button type="button">Entrar</Button>
+                </Link>
               </span>
-              <div>
-                <img
-                  src="https://avatars2.githubusercontent.com/u/15930084?s=460&u=00e846aa1cc7943cca6769dccbe301ef0815f1c8&v=4"
-                  alt="Pedido"
-                />
-                <strong>X-buger</strong>
-              </div>
-            </Order>
-          </Section>
-        </Orders>
+            </Model>
+            <Model>
+              <strong>Produtos</strong>
+              <span>
+                <Link to="/products">
+                  <Button type="button">Entrar</Button>
+                </Link>
+              </span>
+            </Model>
+          </div>
+        </Models>
       </Content>
     </Container>
   );

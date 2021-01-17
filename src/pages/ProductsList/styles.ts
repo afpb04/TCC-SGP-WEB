@@ -25,6 +25,12 @@ export const HeaderContent = styled.div`
     width: 20px;
     height: 20px;
   }
+  h1 {
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
 `;
 export const Profile = styled.div`
   display: flex;
@@ -54,16 +60,10 @@ export const Content = styled.main`
   margin: 64px auto;
   display: flex;
 `;
-export const Models = styled.div`
+export const Products = styled.div`
   flex: 1;
   h1 {
     font-size: 36px;
-  }
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 22px;
   }
   p {
     margin-top: 8px;
@@ -86,45 +86,53 @@ export const Models = styled.div`
     }
   }
 `;
-export const Model = styled.div`
-  background: #3e3b47;
-  display: flex;
-  align-items: center;
-  padding: 16px 24px;
-  border-radius: 10px;
-  margin-top: 24px;
-  position: relative;
-  height: 208px;
-  flex-direction: column;
-  justify-content: center;
-  gap: 32px;
-  width: 256px;
+export const Product = styled.div`
+  margin-top: 12px;
 
-  &::before {
-    position: absolute;
-    height: 1px;
-    width: 80%;
-
-    top: 1%;
-    left: px;
-    content: '';
-    background: #ff9000;
-  }
-
-  strong {
-    font-size: 28px;
-    font-weight: 400;
-    margin-left: 24px;
-    color: #fff;
-    margin-right: 24px;
-  }
-
-  span {
+  div {
+    background: #3e3b47;
     display: flex;
     align-items: center;
-    color: #999591;
-  }
-  button {
-    margin: 0;
+    padding: 16px 24px;
+    border-radius: 10px;
+    margin-top: 24px;
+    position: relative;
+
+    > strong {
+      color: #999591;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    &::before {
+      position: absolute;
+      height: 80%;
+      width: 1px;
+      left: 0;
+      top: 10%;
+      content: '';
+      background: #ff9000;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    strong {
+      margin-left: 24px;
+      color: #fff;
+    }
+    span {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      color: #999591;
+    }
+    svg {
+      height: 20px;
+      width: 20px;
+      color: #ff9000;
+      margin-right: 8px;
+    }
   }
 `;
