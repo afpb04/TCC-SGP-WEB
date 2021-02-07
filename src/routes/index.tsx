@@ -11,6 +11,8 @@ import Dashboard from '../pages/Dashboard';
 import OrdersList from '../pages/OrdersList';
 import ProductsList from '../pages/ProductsList';
 import Profile from '../pages/Profile';
+import Product from '../pages/Product';
+import Menu from '../pages/Menu';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -18,10 +20,12 @@ const Routes: React.FC = () => (
     <Route path="/signup" exact component={SignUp} />
     <Route path="/forgot-password" exact component={ForgotPassword} />
     <Route path="/reset-password" exact component={ResetPassword} />
+    <Route path="/menu/:id" exact component={Menu} />
 
     <Route path="/dashboard" exact component={Dashboard} isPrivate />
     <Route path="/orders" exact component={OrdersList} isPrivate />
     <Route path="/products" exact component={ProductsList} isPrivate />
+    <Route path="/products/:id" exact component={Product} isPrivate />
     <Route path="/profile" exact component={Profile} isPrivate />
   </Switch>
 );

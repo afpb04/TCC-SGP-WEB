@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import { FiEdit } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { Container, Content, Products, Product } from './styles';
 
 import api from '../../services/api';
@@ -54,7 +55,9 @@ const ProductsList: React.FC = () => {
                   <strong>{product.name}</strong>
                   <span>{product.description}</span>
                   <span>
-                    <FiEdit />
+                    <Link to={`/products/${product.id}`}>
+                      <FiEdit />
+                    </Link>
                   </span>
                 </div>
               </Product>
