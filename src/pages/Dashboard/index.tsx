@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
             <Model>
               <strong>Caixa</strong>
               <span>
-                <Link to="/">
+                <Link to="/CheckOut">
                   <Button type="button">Entrar</Button>
                 </Link>
               </span>

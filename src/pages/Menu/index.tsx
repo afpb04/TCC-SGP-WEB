@@ -46,7 +46,7 @@ const Menu: React.FC = () => {
     api.get<Category[]>(`categories/${params.id}`).then((response) => {
       setCategories(response.data);
     });
-    api.get<IProducts[]>(`products/${params.id}`).then((response) => {
+    api.get<IProducts[]>(`products/public/${params.id}`).then((response) => {
       setProducts(response.data);
     });
   }, [params.id]);

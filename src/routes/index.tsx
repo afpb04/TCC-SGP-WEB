@@ -13,6 +13,8 @@ import ProductsList from '../pages/ProductsList';
 import Profile from '../pages/Profile';
 import Product from '../pages/Product';
 import Menu from '../pages/Menu';
+import CheckOutList from '../pages/CheckOutList';
+import Order from '../pages/Order';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -27,6 +29,8 @@ const Routes: React.FC = () => (
     <Route path="/products" exact component={ProductsList} isPrivate />
     <Route path="/products/:id" exact component={Product} isPrivate />
     <Route path="/profile" exact component={Profile} isPrivate />
+    <Route path="/checkOut" exact component={CheckOutList} isPrivate />
+    <Route path="/order/:id" exact component={Order} isPrivate />
   </Switch>
 );
 export default Routes;
